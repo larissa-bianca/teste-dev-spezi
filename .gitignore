@@ -1,0 +1,14 @@
+front-end/node_modules/
+front-end/.expo/
+front-end/.vscode/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+
+# macOS
+.DS_Store
