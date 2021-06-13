@@ -6,7 +6,7 @@ import colors from "../styles/colors";
 export function SectionButton(props) {
   return (
     <>
-      {true ? (
+      {false ? (
         <TouchableOpacity
           style={{ ...styles.button, backgroundColor: colors.gray_2 }}
         >

@@ -2,15 +2,9 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import colors from "../styles/colors";
 
-export function ProgressBar(props) {
+export function ProgressBar({ percent }) {
   return (
-    <View
-      style={{
-        flex: 1,
-        flexDirection: "row",
-        alignItems: "center",
-      }}
-    >
+    <View style={styles.bar}>
       <View
         style={{
           height: 5,
@@ -19,29 +13,33 @@ export function ProgressBar(props) {
           width: 300,
         }}
       >
-        <View
-          style={{
-            position: "relative",
-            height: "100%",
-            color: colors.white,
-            backgroundColor: colors.primary,
-            borderRadius: 15,
-            overflow: "hidden",
-            padding: 3,
-            color: "white",
-            textAlign: "right",
-            width: `${props.percent}%`,
-          }}
-        ></View>
+        <View style={{ ...styles.progress, width: `${percent}%` }}></View>
       </View>
-      <Text
-        style={{
-          textAlign: "right",
-          color: colors.white,
-          fontSize: 12,
-          marginHorizontal: 10,
-        }}
-      >{`${props.percent}%`}</Text>
+      <Text style={styles.percent}>{`${percent}%`}</Text>
     </View>
   );
 }
+const styles = StyleSheet.create({
+  bar: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  progress: {
+    position: "relative",
+    height: "100%",
+    color: colors.white,
+    backgroundColor: colors.primary,
+    borderRadius: 15,
+    overflow: "hidden",
+    padding: 3,
+    color: "white",
+    textAlign: "right",
+  },
+  percent: {
+    textAlign: "right",
+    color: colors.white,
+    fontSize: 12,
+    marginHorizontal: 10,
+  },
+});

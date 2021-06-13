@@ -7,7 +7,7 @@ import { ProgressBar } from "../components/ProgressBar";
 import colors from "../styles/colors";
 
 export function Form({ navigation }) {
-  const [percent, setPercent] = useState(75);
+  const [percent, setPercent] = useState(80);
   return (
     <View style={styles.container}>
       <SectionButton title="Seção" />
@@ -20,7 +20,7 @@ export function Form({ navigation }) {
       >
         <Text>Enviar Formulário</Text>
       </TouchableOpacity>
-      <View style={styles.progressBar}>
+      <View style={styles.bottomBar}>
         <ProgressBar percent={percent} />
       </View>
     </View>
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 80,
   },
-  progressBar: {
+  bottomBar: {
     position: "absolute",
     alignItems: "center",
     justifyContent: "center",
