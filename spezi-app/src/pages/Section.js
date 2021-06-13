@@ -15,20 +15,20 @@ import { MultipleQuestion } from "../components/MultipleQuestion";
 import { DotBar } from "../components/DotBar";
 
 import colors from "../styles/colors";
+import api from "../services/api";
 
 export function Section({ navigation }) {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://192.168.18.119:3001/api/v1/sections/1/questions")
+    fetch(api + "/sections/1/questions")
       .then((response) => response.json())
       .then((json) => setData(json))
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
   }, []);
 
-  console.log("lara", data);
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
@@ -93,8 +93,5 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     backgroundColor: colors.white,
     padding: 10,
-  },
-  list: {
-    flex: 1,
   },
 });

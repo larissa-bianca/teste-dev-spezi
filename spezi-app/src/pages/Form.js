@@ -13,14 +13,16 @@ import { SectionButton } from "../components/SectionButton";
 import { ProgressBar } from "../components/ProgressBar";
 
 import colors from "../styles/colors";
+import api from "../services/api";
 
-export function Form({ navigation }) {
+export function Form({ navigation, route }) {
   const [percent, setPercent] = useState(80);
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+  const params = route.params;
 
   useEffect(() => {
-    fetch("http://192.168.18.119:3001/api/v1/sections")
+    fetch(api + "/sections")
       .then((response) => response.json())
       .then((json) => setData(json))
       .catch((error) => console.error(error))

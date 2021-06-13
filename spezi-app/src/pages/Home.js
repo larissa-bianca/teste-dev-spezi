@@ -10,13 +10,14 @@ import {
 import { FormButton } from "../components/FormButton";
 import { Ionicons } from "@expo/vector-icons";
 import colors from "../styles/colors";
+import api from "../services/api";
 
 export function Home({ navigation }) {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://192.168.18.119:3001/api/v1/forms/.json")
+    fetch(api + "/forms/.json")
       .then((response) => response.json())
       .then((json) => setData(json))
       .catch((error) => console.error(error))
@@ -33,7 +34,14 @@ export function Home({ navigation }) {
           style={styles.list}
           data={data}
           keyExtractor={(item) => item.id.toString()}
-          renderItem={({ item }) => <FormButton title={item.title} />}
+          renderItem={({ item }) => (
+            <FormButton
+              title={item.title}
+              callback={() =>
+                navigation.navigate("Formulários", { params: item })
+              }
+            />
+          )}
         />
       )}
       <TouchableOpacity
