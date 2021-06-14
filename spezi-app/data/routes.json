@@ -1,5 +1,0 @@
-{
-  "/api/v1/*": "/$1",
-  "/forms/:sections": "/forms?sections=:sections",
-  "/questions\\?id=:id": "/questions/:id"
-}

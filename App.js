@@ -6,6 +6,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { Home } from "./src/pages/Home";
 import { Form } from "./src/pages/Form";
 import { Section } from "./src/pages/Section";
+import { FormCreate } from "./src/pages/FormCreate";
 
 import colors from "./src/styles/colors";
 
@@ -32,6 +33,7 @@ export default function App() {
         />
         <Stack.Screen name="Formulários" component={Form} />
         <Stack.Screen name="Seção" component={Section} />
+        <Stack.Screen name="Novo Formulário" component={FormCreate} />
       </Stack.Navigator>
     </NavigationContainer>
   );

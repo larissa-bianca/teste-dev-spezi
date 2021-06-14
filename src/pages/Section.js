@@ -8,6 +8,7 @@ import {
   Text,
   SafeAreaView,
   FlatList,
+  ScrollView,
 } from "react-native";
 import { TextQuestion } from "../components/TextQuestion";
 import { NumberQuestion } from "../components/NumberQuestion";
@@ -35,11 +36,8 @@ export function Section({ navigation }) {
         {isLoading ? (
           <ActivityIndicator size="large" color={colors.primary} />
         ) : (
-          <FlatList
-            style={styles.list}
-            data={data}
-            keyExtractor={(item) => item.id.toString()}
-            renderItem={({ item }) => {
+          <ScrollView style={{ height: 10 }}>
+            {data.map((item) => {
               if (item.kind === "number") {
                 return <NumberQuestion title={item.title} />;
               } else if (item.kind === "text") {
@@ -47,13 +45,13 @@ export function Section({ navigation }) {
               } else if (item.kind === "select") {
                 return <MultipleQuestion title={item.title} />;
               }
-            }}
-          />
+            })}
+          </ScrollView>
         )}
       </View>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate("Home")}
+        onPress={() => navigation.navigate("Home", { save: true })}
       >
         <Text style={styles.text}>Salvar</Text>
       </TouchableOpacity>
@@ -70,9 +68,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   content: {
-    flex: 1,
     width: "90%",
-    margin: 12,
+    height: "80%",
+    margin: 10,
+    top: 0,
+    position: "absolute",
   },
   button: {
     alignItems: "center",

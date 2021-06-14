@@ -47,7 +47,7 @@ export function Home({ navigation }) {
       <TouchableOpacity
         style={styles.bottomBar}
         activeOpacity={1}
-        onPress={() => navigation.navigate("Formulários")}
+        onPress={() => navigation.navigate("Novo Formulário")}
       >
         <Ionicons name="md-add-circle" size={32} color="white" />
       </TouchableOpacity>
