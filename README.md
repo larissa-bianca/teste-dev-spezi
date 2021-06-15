@@ -18,7 +18,7 @@ How to run the project:
 
 `json-server db.json --routes routes.json`
 
-`
+```
 Resources
   http://localhost/forms
   http://localhost/sections
@@ -29,4 +29,4 @@ Resources
   /forms/:sections -> /forms?sections=:sections
   /questions\?id=:id -> /questions/:id
 
-`
+```
