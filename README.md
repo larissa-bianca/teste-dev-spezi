@@ -20,13 +20,13 @@ How to run the project:
 
 ```
 Resources
-  http://localhost/forms
-  http://localhost/sections
-  http://localhost/questions
+http://localhost/forms
+http://localhost/sections
+http://localhost/questions
 
-  Other routes
-  /api/v1/* -> /$1
-  /forms/:sections -> /forms?sections=:sections
-  /questions\?id=:id -> /questions/:id
+Other routes
+/api/v1/* -> /$1
+/forms/:sections -> /forms?sections=:sections
+/questions\?id=:id -> /questions/:id
 
 ```
