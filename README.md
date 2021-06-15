@@ -6,7 +6,7 @@
 
 How to run the project:
 
-git clone <repo-path>/<repo-name>
+`git clone <repo-path>/<repo-name>`
 
 `cd <repo-name>`
 
